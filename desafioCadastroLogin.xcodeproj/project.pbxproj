@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA1939212512F2F8001BA4C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1939202512F2F8001BA4C8 /* User.swift */; };
+		CA1939242512F32F001BA4C8 /* UserControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1939232512F32F001BA4C8 /* UserControl.swift */; };
+		CA19392A2512FA42001BA4C8 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1939292512FA42001BA4C8 /* UITextFieldExtension.swift */; };
 		CA874B602511B9AE003617CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA874B5F2511B9AE003617CB /* AppDelegate.swift */; };
 		CA874B622511B9AE003617CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA874B612511B9AE003617CB /* SceneDelegate.swift */; };
 		CA874B642511B9AE003617CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA874B632511B9AE003617CB /* ViewController.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA1939202512F2F8001BA4C8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CA1939232512F32F001BA4C8 /* UserControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserControl.swift; sourceTree = "<group>"; };
+		CA1939292512FA42001BA4C8 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		CA874B5C2511B9AE003617CB /* desafioCadastroLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = desafioCadastroLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA874B5F2511B9AE003617CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA874B612511B9AE003617CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA1939262512F7C4001BA4C8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CA1939292512FA42001BA4C8 /* UITextFieldExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CA874B532511B9AD003617CB = {
 			isa = PBXGroup;
 			children = (
@@ -58,8 +72,11 @@
 			children = (
 				CA874B5F2511B9AE003617CB /* AppDelegate.swift */,
 				CA874B612511B9AE003617CB /* SceneDelegate.swift */,
-				CA874B632511B9AE003617CB /* ViewController.swift */,
 				CA874B652511B9AE003617CB /* Main.storyboard */,
+				CA874B632511B9AE003617CB /* ViewController.swift */,
+				CA1939202512F2F8001BA4C8 /* User.swift */,
+				CA1939232512F32F001BA4C8 /* UserControl.swift */,
+				CA1939262512F7C4001BA4C8 /* Extensions */,
 				CA874B682511B9B0003617CB /* Assets.xcassets */,
 				CA874B6A2511B9B0003617CB /* LaunchScreen.storyboard */,
 				CA874B6D2511B9B0003617CB /* Info.plist */,
@@ -138,7 +155,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA1939212512F2F8001BA4C8 /* User.swift in Sources */,
+				CA19392A2512FA42001BA4C8 /* UITextFieldExtension.swift in Sources */,
 				CA874B642511B9AE003617CB /* ViewController.swift in Sources */,
+				CA1939242512F32F001BA4C8 /* UserControl.swift in Sources */,
 				CA874B602511B9AE003617CB /* AppDelegate.swift in Sources */,
 				CA874B622511B9AE003617CB /* SceneDelegate.swift in Sources */,
 			);

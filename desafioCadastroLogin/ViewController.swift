@@ -26,33 +26,12 @@ class ViewController: UIViewController {
         if validateFields() {
             if userControl.checkUser(usuario: userLogin) {
                 if userControl.checkPassword {
-                    let alert = UIAlertController(title: "Atenção", message: "Usuário logado!", preferredStyle: .alert)
-
-                    let okAction = UIAlertAction(title: "OK", style: .cancel) { (UIAlertAction) in
-                    }
-                    alert.addAction(okAction)
-                    self.present(alert, animated: true) {
-                       
-                    }
+                    alert(mensagem: "Usuário logado!")
                 } else {
-                    let alert = UIAlertController(title: "Atenção", message: "Senha incorreta!", preferredStyle: .alert)
-
-                    let okAction = UIAlertAction(title: "OK", style: .cancel) { (UIAlertAction) in
-                    }
-                    alert.addAction(okAction)
-                    self.present(alert, animated: true) {
-                       
-                    }
+                    alert(mensagem: "Login ou Senha incorreta!")
                 }
             } else {
-                let alert = UIAlertController(title: "Atenção", message: "Usuário inexistente!", preferredStyle: .alert)
-
-                let okAction = UIAlertAction(title: "OK", style: .cancel) { (UIAlertAction) in
-                }
-                alert.addAction(okAction)
-                self.present(alert, animated: true) {
-                   
-                }
+                alert(mensagem: "Login ou Senha incorreta!")
             }
         }
     }
@@ -61,24 +40,10 @@ class ViewController: UIViewController {
         let userCadastrar = User(login: textFieldLogin.text!, password: textFieldSenha.text!)
         if validateFields() {
             if userControl.checkUser(usuario: userCadastrar) {
-                let alert = UIAlertController(title: "Atenção", message: "Usuário já cadastrado!", preferredStyle: .alert)
-
-                let okAction = UIAlertAction(title: "OK", style: .cancel) { (UIAlertAction) in
-                }
-                alert.addAction(okAction)
-                self.present(alert, animated: true) {
-                   
-                }
+                alert(mensagem: "Usuário já cadastrado!")
             } else {
                 userControl.addUser(user: userCadastrar)
-                let alert = UIAlertController(title: "Atenção", message: "Usuário cadastrado!", preferredStyle: .alert)
-
-                let okAction = UIAlertAction(title: "OK", style: .cancel) { (UIAlertAction) in
-                }
-                alert.addAction(okAction)
-                self.present(alert, animated: true) {
-                   
-                }
+                alert(mensagem: "Usuário cadastrado!")
                 clearFields()
             }
         }
@@ -87,24 +52,35 @@ class ViewController: UIViewController {
     }
     
     func validateFields() -> Bool{
-        if textFieldLogin == nil || textFieldLogin.text!.isEmpty || textFieldSenha == nil || textFieldSenha.text!.isEmpty {
+        if textFieldLogin.isEmpty() || textFieldSenha.isEmpty() {
             return false
         } else {
             return true
         }
     }
     
+    func alert (mensagem: String) {
+            let alert = UIAlertController(title: "Atenção", message: mensagem, preferredStyle: .alert)
+
+            let okAction = UIAlertAction(title: "OK", style: .cancel) { (UIAlertAction) in
+            }
+            alert.addAction(okAction)
+            self.present(alert, animated: true) {
+
+            }
+        }
+    
     func clearFields() {
-        textFieldLogin.text = nil
-        textFieldSenha.text = nil
-        textFieldLogin.becomeFirstResponder()
-    }
+            textFieldLogin.text = nil
+            textFieldSenha.text = nil
+            textFieldLogin.becomeFirstResponder()
+        }
 }
 
 extension ViewController: UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == textFieldLogin {
-            if textFieldLogin != nil && !textFieldLogin.text!.isEmpty  {
+            if textFieldLogin.isEmpty()  {
                 textFieldSenha.becomeFirstResponder()
             }
         } else {
@@ -115,40 +91,3 @@ extension ViewController: UITextFieldDelegate {
         return true
     }
 }
-
-class User {
-    var login: String
-    var password: String
-    
-    init(login: String, password: String) {
-        self.login = login
-        self.password = password
-    }
-}
-
-class UserControl {
-    var arrayUser = [User]()
-    var checkLogin: Bool = false
-    var checkPassword: Bool = false
-    
-    func addUser(user: User){
-        arrayUser.append(user)
-    }
-    
-    func checkUser(usuario: User) -> Bool {
-        for item in arrayUser {
-            if item.login == usuario.login {
-                checkLogin = true
-                if item.password == usuario.password {
-                    checkPassword = true
-                    return checkLogin
-                } else {
-                    checkPassword = false
-                }
-            }
-        }
-        return checkLogin
-    }
-    
-}
-
